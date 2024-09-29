@@ -1,15 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = { count: 0 };
+type CounterTyoe = {
+  count: number;
+};
+
+const initialState: CounterTyoe = { count: 0 };
 
 const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    increment: (state, action) => {
+    increment: (state, action: PayloadAction<number>) => {
       state.count = state.count + action.payload;
     },
-    decrement: (state, action) => {
+    decrement: (state, action: PayloadAction<number>) => {
       state.count = state.count - action.payload;
     },
   },
